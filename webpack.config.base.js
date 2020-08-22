@@ -13,16 +13,19 @@ module.exports = {
   ],
   module: {
     rules: [
-      {
-        test: /\.(png|svg|jpg|gif)$/,
-        use: ['file-loader',],
-      },
+      // {
+      //   test: /\.(png|svg|jpg|gif)$/,
+      //   use: ['file-loader',],
+      // },
       {
         test: /\.(png|svg|jpg|gif)$/,
         use: [{
           loader: 'url-loader',
           options: {
-            limit: 500000
+            limit: 500000,
+            name: '[path][name].[ext]',
+            outputPath: 'images/',
+            publicPath: 'dist/'
           }
         }],
       },
