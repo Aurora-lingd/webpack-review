@@ -10,6 +10,23 @@ module.exports = {
       title: 'My App', //设置html 的title
       template: 'src/assets/index.html' //根据这个地址的html 来生成打包好的新html
     })
-  ]
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: ['file-loader',],
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [{
+          loader: 'url-loader',
+          options: {
+            limit: 500000
+          }
+        }],
+      },
+    ],
+  },
 }
 
